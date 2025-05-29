@@ -1,20 +1,20 @@
-# Flujograma Logístico de Abastecimiento FENIX 4-8-37 al Sistema Defensivo Territorial
+# FENIX 4-8-37 Supply Logistics Flowchart to the Territorial Defense System
 
-Aquí se detalla el proceso de abastecimiento de las raciones FENIX 4-8-37, desde el origen de la materia prima hasta la entrega al Sistema Defensivo Territorial (SDT) y el ciclo de retroalimentación para la mejora continua.
+This diagram details the supply process of FENIX 4-8-37 rations, from raw material origin to delivery to the Territorial Defense System (SDT) and the feedback loop for continuous improvement.
 
-La ración FENIX 4-8-37 es un prototipo integral de 24 horas, autosuficiente, que incluye alimentos en envases retortables esterilizados, formulados para consumo inmediato o tras calentamiento. Todos los componentes están contenidos en una bolsa máster de polipropileno de alta resistencia con cierre ziplock, e integra un calentador táctico sin llama de producción nacional. La producción está proyectada a una escala estratégica de 10.000 unidades con un costo objetivo de 12 USD por ración.
+The FENIX 4-8-37 ration is an integrated 24-hour, self-sufficient prototype, consisting of food packed in retortable and sterilized containers, formulated for immediate consumption or after heating. All components are contained within a high-resistance polypropylene master bag equipped with a ziplock seal for easy handling and protection. The FENIX 4-8-37 ration integrates the flameless tactical heater described earlier, consolidating it as a functional, compact, and self-sufficient combat feeding solution designed to meet operational demands.
 
-Cuenta con tres menús de inspiración venezolana, buscando satisfacer los requerimientos nutricionales y elevar la moral de la tropa:
+It features three menus with deep Venezuelan inspiration, aiming to satisfy nutritional requirements and boost troop morale:
 
-* **Menú 1:** Desayuno (Arepa asada c/pollo mechado, Café c/leche), Almuerzo (Sopa de carne y vegetales, Pabellón criollo, Bebida papelón), Cena (Bollo aliñado c/cerdo, Bebida papelón), Misceláneos (Bocadillo plátano, Chocolate c/leche, Turrón blanco).
-* **Menú 2:** Desayuno (Empanada carne molida, Café c/leche), Almuerzo (Sopa de carne y vegetales, Pasta boloñesa, Bebida papelón), Cena (Rebanadas tostadas c/ajonjolí, Mermelada de guayaba, Bebida papelón), Misceláneos (Bocadillo plátano, Chocolate c/leche, Turrón de almendras).
-* **Menú 3:** Desayuno (Empanada pollo, Café c/leche), Almuerzo (Sopa de carne y vegetales, Arroz con pollo, Bebida papelón), Cena (Rebanadas tostadas c/orégano, Sardinas en salsa de tomate, Bebida papelón), Misceláneos (Bocadillo plátano, Chocolate c/leche, Turrón de almendras).
+* **Menu 1:** Breakfast (Grilled Arepa w/shredded chicken "pisillo" style, Instant Coffee w/milk), Lunch (Beef and vegetable soup, Pabellón criollo, Instant Papelón w/lemon drink), Dinner (Seasoned Corn Bread Roll w/pork, Instant Papelón w/lemon drink), Miscellaneous (Plantain sweet, Milk chocolate bar, White nougat).
+* **Menu 2:** Breakfast (Ground beef empanada, Instant Coffee w/milk), Lunch (Beef and vegetable soup, Short pasta with Bolognese sauce, Instant Papelón w/lemon drink), Dinner (Toasted slices w/sesame, Guava jam, Instant Papelón w/lemon drink), Miscellaneous (Plantain sweet, Milk chocolate bar, Almond nougat).
+* **Menu 3:** Breakfast (Chicken empanada, Instant Coffee w/milk), Lunch (Beef and vegetable soup, Chicken and mixed vegetables rice, Instant Papelón w/lemon drink), Dinner (Savory toasted slices w/oregano, Sardines in tomato sauce, Instant Papelón w/lemon drink), Miscellaneous (Plantain sweet, Milk chocolate bar, Almond nougat).
 
 ---
 
 ```mermaid
 graph TD
-    %% Definición de Estilos para Nodos (Opcional, para mejor visualización)
+    %% Node Style Definitions (Optional, for better visualization)
     style A fill:#D0F0C0,stroke:#3C8E3C,stroke-width:2px;
     style B fill:#FFFACD,stroke:#DAA520,stroke-width:2px;
     style C fill:#C0D9F0,stroke:#4682B4,stroke-width:2px;
@@ -29,48 +29,30 @@ graph TD
     style G fill:#FFDDC1,stroke:#E27000,stroke-width:2px;
     style H fill:#E0FFFF,stroke:#4682B4,stroke-width:2px;
 
-    %% Subgraph principal para toda la cadena
-    subgraph Cadena de Abastecimiento FENIX 4-8-37 al SDT
+    %% Main subgraph for the entire chain
+    subgraph FENIX 4-8-37 Supply Chain to SDT
         direction LR
 
-        A[**ORIGEN DE MATERIA PRIMA**<br/>Servicio de Alimentación GNB] --> B{**TRANSPORTE INICIAL**<br/>Materia Prima a Carúpano};
+        A[**RAW MATERIAL ORIGIN**<br/>GNB Food Service] --> B{**INITIAL TRANSPORT**<br/>Raw Material to Carúpano};
 
-        subgraph PRODUCCIÓN Y PROCESAMIENTO: Planta FENIX Carúpano
+        subgraph PRODUCTION AND PROCESSING: FENIX Carúpano Plant
             direction TB
 
-            C[**RECEPCIÓN Y PREPARACIÓN**<br/>(Verificación, Almacenamiento Insumos)];
+            C[**RECEIVING AND PREPARATION**<br/>(Verification, Raw Material Storage)];
 
-            subgraph Elaboración Menús FENIX (3 Tipos)
-                C --> C_M1(Producción MENÚ 1);
-                C --> C_M2(Producción MENÚ 2);
-                C --> C_M3(Producción MENÚ 3);
+            subgraph FENIX Menu Production (3 Types)
+                C --> C_M1(Produce MENU 1);
+                C --> C_M2(Produce MENU 2);
+                C --> C_M3(Produce MENU 3);
             end
 
-            C_M1 & C_M2 & C_M3 --> C_Proceso(Envasado Retortable & Esterilización Comercial);
-            C_Proceso --> C_QC(Control de Calidad (Sanitario, Nutricional));
-            C_QC --> C_Ensamblaje(Ensamblaje Ración Completa<br/>(Incluye Calentador Táctico SIN LLAMA, Utensilios, Misceláneos));
-            C_Ensamblaje --> C_Empaque(Empaque Final en Bolsa Máster<br/>(Polipropileno c/ Ziplock, Codificación por Menú));
-            C_Empaque --> H(**PRODUCCIÓN FENIX TERMINADA**<br/>(10.000 Raciones/Batch, $12/ración));
+            C_M1 & C_M2 & C_M3 --> C_Proceso(Retortable Packaging & Commercial Sterilization);
+            C_Proceso --> C_QC(Quality Control (Sanitary, Nutritional));
+            C_QC --> C_Assembly(Ration Assembly<br/>(Includes Flameless Tactical Heater, Utensils, Miscellaneous));
+            C_Assembly --> C_Packaging(Final Packaging in Master Bag<br/>(High-Resistance Polypropylene w/ Ziplock, Menu Coding));
+            C_Packaging --> H(**FINISHED FENIX PRODUCTION**<br/>(10,000 Rations/Batch, $12/ration));
         end
 
-        B --> C; %% Conexión del transporte a la recepción en Carúpano
-        H --> D{**ALMACENAMIENTO Y GESTIÓN LOGÍSTICA**<br/>Centro Logístico Regional / Punto Adaptado URRA};
-        D --> E[**DISTRIBUCIÓN FINAL**<br/>A Unidades del SDT (GUC, GC(s), Formaciones)];
-        E --> F{**CONSUMO Y RECOLECCIÓN DE RETROALIMENTACIÓN**<br/>(Uso en Campo, Satisfacción)};
-        F --> G(**ANÁLISIS Y AJUSTE DEL SISTEMA**<br/>(Informes de Calidad, Oportunidad, Eficiencia));
-        G --> A; %% Retroalimentación al Origen
-        G --> C; %% Retroalimentación a Producción para ajustes de proceso
-        G --> D; %% Retroalimentación a Almacenamiento/Distribución para optimización
-
-        %% Leyendas de flujos importantes
-        A -- Materia Prima Diversa<br/>(según 3 Menús) --> B;
-        C_Ensamblaje -- Integración de componentes<br/>Nacionales/Importados --> H;
-        H -- Despacho de Lotes<br/>(Ej: 10.000 Raciones) --> D;
-        D -- Gestión de Inventario<br/>(por Menú) --> E;
-        E -- Entrega Efectiva<br/>al SDT --> F;
-        F -- Informes de Desempeño<br/>y Sugerencias --> G;
-        G -- Directrices de Optimización<br/>y Mejora Continua --> A;
-        G -- Ajustes de Proceso<br/>en Fábrica --> C;
-        G -- Rediseño de Rutas/Almacenamiento --> D;
-
-    end
+        B --> C; %% Connection of transport to reception in Carúpano
+        H --> D{**LOGISTICS STORAGE AND MANAGEMENT**<br/>Regional Logistics Center / Adapted URRA Point};
+        D --> E[**FINAL
