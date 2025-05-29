@@ -14,22 +14,6 @@ It features three menus with deep Venezuelan inspiration, aiming to satisfy nutr
 
 ```mermaid
 graph TD
-    %% Node Style Definitions (Optional, for better visualization)
-    style A fill:#D0F0C0,stroke:#3C8E3C,stroke-width:2px;
-    style B fill:#FFFACD,stroke:#DAA520,stroke-width:2px;
-    style C fill:#C0D9F0,stroke:#4682B4,stroke-width:2px;
-    style C_M1 fill:#E0FFFF,stroke:#4682B4,stroke-width:1px;
-    style C_M2 fill:#E0FFFF,stroke:#4682B4,stroke-width:1px;
-    style C_M3 fill:#E0FFFF,stroke:#4682B4,stroke-width:1px;
-    style C_Empaque fill:#E0FFFF,stroke:#4682B4,stroke-width:1px;
-    style C_Final fill:#ADD8E6,stroke:#4682B4,stroke-width:2px;
-    style D fill:#FFFACD,stroke:#DAA520,stroke-width:2px;
-    style E fill:#D9EDF7,stroke:#5BC0DE,stroke-width:2px;
-    style F fill:#F5DEB3,stroke:#CD853F,stroke-width:2px;
-    style G fill:#FFDDC1,stroke:#E27000,stroke-width:2px;
-    style H fill:#E0FFFF,stroke:#4682B4,stroke-width:2px;
-
-    %% Main subgraph for the entire chain
     subgraph FENIX 4-8-37 Supply Chain to SDT
         direction LR
 
@@ -47,12 +31,29 @@ graph TD
             end
 
             C_M1 & C_M2 & C_M3 --> C_Proceso(Retortable Packaging & Commercial Sterilization);
-            C_Proceso --> C_QC(Quality Control (Sanitary, Nutritional));
-            C_QC --> C_Assembly(Ration Assembly<br/>(Includes Flameless Tactical Heater, Utensils, Miscellaneous));
-            C_Assembly --> C_Packaging(Final Packaging in Master Bag<br/>(High-Resistance Polypropylene w/ Ziplock, Menu Coding));
+            C_Proceso --> C_QC(Quality Control);
+            C_QC --> C_Assembly(Ration Assembly<br/>(Incl. Flameless Tactical Heater, Utensils, Misc.));
+            C_Assembly --> C_Packaging(Final Packaging in Master Bag<br/>(Polypropylene w/ Ziplock, Menu Coding));
             C_Packaging --> H(**FINISHED FENIX PRODUCTION**<br/>(10,000 Rations/Batch, $12/ration));
         end
 
-        B --> C; %% Connection of transport to reception in Carúpano
+        B --> C;
         H --> D{**LOGISTICS STORAGE AND MANAGEMENT**<br/>Regional Logistics Center / Adapted URRA Point};
-        D --> E[**FINAL
+        D --> E[**FINAL DISTRIBUTION**<br/>To SDT Units (GUC, GC(s), Formations)];
+        E --> F{**CONSUMPTION AND FEEDBACK COLLECTION**<br/>(Field Use, Satisfaction)};
+        F --> G(**SYSTEM ANALYSIS AND ADJUSTMENT**);
+        G --> A;
+        G --> C;
+        G --> D;
+
+        A -- Diverse Raw Materials<br/>(per 3 Menus) --> B;
+        C_Assembly -- Integration of Components --> H;
+        H -- Batch Dispatch<br/>(e.g., 10,000 Rations) --> D;
+        D -- Inventory Management<br/>(by Menu) --> E;
+        E -- Effective Delivery<br/>to SDT --> F;
+        F -- Performance Reports<br/>and Suggestions --> G;
+        G -- Optimization Directives --> A;
+        G -- Process Adjustments --> C;
+        G -- Route/Storage Redesign --> D;
+
+    end
