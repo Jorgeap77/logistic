@@ -72,5 +72,5 @@ graph TD
         G -- Directrices de Optimización<br/>y Mejora Continua --> A;
         G -- Ajustes de Proceso<br/>en Fábrica --> C;
         G -- Rediseño de Rutas/Almacenamiento --> D;
-```
+
     end
